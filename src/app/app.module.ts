@@ -9,6 +9,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CdkTableModule } from '@angular/cdk/table';
+import { CommonModule } from '@angular/common';
+import { NgxsModule } from '@ngxs/store';
+import { ContactFormModule } from './components/contact-form';
+import { ContactListModule } from './components/contact-list';
+import { ContactState } from './contact.state';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,14 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
-    CdkTableModule
+    CdkTableModule,
+    CommonModule,
+		ContactFormModule,
+		ContactListModule,
+		BrowserModule,
+		NgxsModule.forRoot([
+			ContactState
+		])
 
   ],
   providers: [],

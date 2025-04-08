@@ -1,51 +1,13 @@
-
-<div class="container" [formGroup]="form">
-  <h2>Editable Table (Table with formArray)</h2>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" formArrayName="data">
-
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element; let index = index" [formGroupName]="index" class="table-form">
-        <mat-form-field>
-          <input formControlName="name" matInput>
-        </mat-form-field>
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="age">
-      <th mat-header-cell *matHeaderCellDef> Age </th>
-      <td mat-cell *matCellDef="let element; let index = index" [formGroupName]="index" class="table-form">
-        <mat-form-field>
-          <input formControlName="age" matInput type="number">
-        </mat-form-field>
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="food">
-      <th mat-header-cell *matHeaderCellDef> Food </th>
-      <td mat-cell *matCellDef="let element; let index = index" [formGroupName]="index" class="table-form">
-        <mat-form-field>
-          <mat-select formControlName="food">
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{food.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Action </th>
-      <td mat-cell *matCellDef="let element; let index = index" [formGroupName]="index" class="table-form">
-        <button *ngIf="dateFormArray.length -1 === index" (click)="addLine()" mat-raised-button color="primary"> Add line</button>
-        <button *ngIf="dateFormArray.length > 1" (click)="removeLine(index)" mat-raised-button color="warn" class="removeLine"> Remove line</button>
-      </td>
-    </ng-container>
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  <pre>{{form.value | json}}</pre>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 m-auto">
+			<div class="text-center mb-5 mt-5">
+				<h1>Contact Dashboard</h1>
+				<p>Enter a name below and press Enter key to add your contact</p>
+			</div>
+			<contact-form></contact-form>
+			<contact-list></contact-list>
+		</div>
+	</div>
 </div>
-
 
